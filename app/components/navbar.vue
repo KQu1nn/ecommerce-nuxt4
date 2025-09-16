@@ -22,8 +22,8 @@
 <script setup>
 const nav = ref([
   { title: 'INÍCIO', url: '/' },
-  { title: 'CATEGORIA', url: '/category' },
-  { title: 'SOBRE NÓS', url: '/about' },
-  { title: 'CONTATO', url: '/contact' }
+  { title: 'CATEGORIA', url: '/' },
+  { title: 'SOBRE NÓS', url: '/' },
+  { title: 'CONTATO', url: '/' }
 ])
 </script>
