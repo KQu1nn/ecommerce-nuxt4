@@ -12,5 +12,6 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  modules: ['@nuxt/icon', '@nuxt/image']
+  modules: ['@nuxt/icon', '@nuxt/image'],
+  plugins: ['~/plugins/pinia.ts']
 })
