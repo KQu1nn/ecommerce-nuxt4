@@ -12,7 +12,7 @@
     <div class="flex flex-row gap-5 items-center">
       <button class="flex items-center gap-1 cursor-pointer py-1.5 px-5 text-gray-900">
         <Icon name="lucide:user" size="20" />
-        <span class="font-medium">Login</span>
+        <NuxtLink to="/login" class="font-medium">Login</NuxtLink>
       </button>
       <Icon name="lucide:shopping-cart" size="23" class="cursor-pointer" />
     </div>
