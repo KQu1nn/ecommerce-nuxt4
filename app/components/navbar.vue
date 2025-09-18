@@ -17,7 +17,7 @@
           Login</NuxtLink>
       </button>
       <Icon name="lucide:shopping-cart" size="23" class="cursor-pointer" />
-      <button @click="handleLogout" class="bg-red-500 text-white px-4 py-1 rounded cursor-pointer">
+      <button  v-if="loginStore.user"  @click="handleLogout" class="bg-red-500 text-white px-4 py-1 rounded cursor-pointer">
     Sair
   </button>
     </div>
@@ -25,10 +25,23 @@
 </template>
 
 <script setup>
+import { useLoginStore } from '~/stores/login'
+import { useRouter } from 'vue-router'
+
 const nav = ref([
   { title: 'INÍCIO', url: '/' },
   { title: 'CATEGORIA', url: '/' },
   { title: 'SOBRE NÓS', url: '/' },
   { title: 'CONTATO', url: '/' }
 ])
+
+const loginStore = useLoginStore()
+const router = useRouter()
+
+async function handleLogout() {
+  await loginStore.logout()
+  router.push('/')
+}
+
+
 </script>

@@ -16,10 +16,5 @@ definePageMeta({
 const loginStore = useLoginStore()
 const router = useRouter()
 
-async function handleLogout() {
-  await loginStore.logout()
-  router.push('/')
-}
-
 
 </script>
