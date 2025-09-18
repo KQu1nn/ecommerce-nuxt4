@@ -10,14 +10,14 @@
         <div class="w-full flex flex-col gap-3">
           <label class="flex flex-col gap-1">
             <span class="font-medium text-gray-600">Email</span>
-            <input type="email" placeholder="exemplo@email.com"
+            <input v-model="email" type="email" placeholder="exemplo@email.com"
               class="w-full border border-gray-200 px-3 py-1.5 rounded-lg outline-0" />
           </label>
           <label class="flex flex-col gap-1">
             <span class="font-medium text-gray-600">
               Senha
             </span>
-            <input type="password" placeholder="********"
+            <input v-model="senha" type="password" placeholder="********"
               class="w-full border border-gray-200 px-3 py-1.5 rounded-lg outline-0" />
           </label>
         </div>
@@ -27,7 +27,33 @@
   </div>
 </template>
 <script setup>
-function login() {
-  //
+import { ref } from 'vue'
+import { useLoginStore } from '~/stores/login'
+import { useRouter } from 'vue-router'
+
+const loginStore = useLoginStore()
+const router = useRouter()
+
+const email = ref('')
+const senha = ref('')
+
+async function login() {
+  if (!email.value || !senha.value) {
+    alert("Preencha todos os campos!")
+    return
+  }
+
+  const result = await loginStore.login(email.value, senha.value)
+
+  if (!result.success) {
+    alert(result.message)
+    return
+  }
+
+  alert(`Bem-vindo, ${result.user.email}!`)
+  email.value = ''
+  senha.value = ''
+
+  router.push('/dashboard')
 }
 </script>

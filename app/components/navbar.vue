@@ -11,10 +11,15 @@
     </ul>
     <div class="flex flex-row gap-5 items-center">
       <button class="flex items-center gap-1 cursor-pointer py-1.5 px-5 text-gray-900">
-        <Icon name="lucide:user" size="20" />
-        <NuxtLink to="/login" class="font-medium">Login</NuxtLink>
+
+        <NuxtLink to="/login" class="font-medium flex flex-row gap-1 items-center">
+          <Icon name="lucide:user" size="20" />
+          Login</NuxtLink>
       </button>
       <Icon name="lucide:shopping-cart" size="23" class="cursor-pointer" />
+      <button @click="handleLogout" class="bg-red-500 text-white px-4 py-1 rounded cursor-pointer">
+    Sair
+  </button>
     </div>
   </div>
 </template>
